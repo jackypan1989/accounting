@@ -8,5 +8,8 @@
             "source.organizeImports": "always"
         },
         "editor.defaultFormatter": "charliermarsh.ruff"
-    }
+    },
+    "python.analysis.extraPaths": [
+        "./accounting"
+    ]
 }

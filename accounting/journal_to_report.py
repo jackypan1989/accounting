@@ -67,7 +67,8 @@ def journal_to_report(
         ("Total Equity", sum(account_balances["Equity"].values())),
     ]
     balance_sheet_df = pd.DataFrame(balance_sheet_data, columns=["Account", "Amount"])
-    balance_sheet_df.to_csv(output_balance_sheet_path, index=False, float_format="%.2f")
+
+    balance_sheet_df.to_csv(output_balance_sheet_path, index=False)
 
     # Generate and output the income statement
     income_statement_data = [
@@ -89,6 +90,4 @@ def journal_to_report(
     income_statement_df = pd.DataFrame(
         income_statement_data, columns=["Account", "Amount"]
     )
-    income_statement_df.to_csv(
-        output_income_statement_path, index=False, float_format="%.2f"
-    )
+    income_statement_df.to_csv(output_income_statement_path, index=False)

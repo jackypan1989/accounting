@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "tax"
+name = "accounting"
 version = "0.1.0"
 description = ""
 authors = ["Jacky Pan <jackypan1989@gmail.com>"]
