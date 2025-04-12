@@ -3,11 +3,11 @@ import pandas as pd
 # Accounts in categories
 account_balances = {
     "Assets": {
-        "Wise Balance": 0.0,
-        "Stripe Balance": 0.0,
+        "Wise Balance": 3087.7,
+        "Stripe Balance": 339.57,
     },
-    "Liabilities": {"Accounts Payable": 0.0},
-    "Equity": {"Owner's Capital": 0.0, "Retained Earnings": 0.0},
+    "Liabilities": {"Accounts Payable": 3000.0},
+    "Equity": {"Owner's Capital": 619.41, "Retained Earnings": -192.14},
     "Revenues": {"Subscription Revenue": 0.0},
     "Expenses": {
         "Cost of Goods Sold": 0.0,

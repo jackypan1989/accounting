@@ -135,6 +135,28 @@ def convert_wise_to_journal(path_to_wise_csv, path_to_journal_csv, currency_rate
                     "UID": uid,
                 }
             )
+        elif contains(description, "Sent money to"):
+            journal_list.append(
+                {
+                    "Date": date,
+                    "Account": "General and Administrative Expenses",
+                    "Debit": -amount,
+                    "Credit": "",
+                    "Description": description,
+                    "UID": uid,
+                }
+            )
+            journal_list.append(
+                {
+                    "Date": date,
+                    "Account": "Wise Balance",
+                    "Debit": "",
+                    "Credit": -amount,
+                    "Description": description,
+                    "UID": uid,
+                }
+            )
+
         else:
             print(row)
 

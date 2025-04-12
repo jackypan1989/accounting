@@ -1,3 +1,5 @@
+from operator import contains
+
 import pandas as pd
 
 
@@ -139,6 +141,38 @@ def convert_stripe_to_journal(path_to_stripe_csv, path_to_journal_csv):
                         "UID": "stripe_" + transaction_id,
                     }
                 )
+        elif contains(description, "Chargeback withdrawal"):
+            journal_list.append(
+                {
+                    "Date": date,
+                    "Account": "Subscription Revenue",
+                    "Debit": -amount,
+                    "Credit": "",
+                    "Description": description,
+                    "UID": "stripe_" + transaction_id,
+                }
+            )
+            journal_list.append(
+                {
+                    "Date": date,
+                    "Account": "Stripe Transaction Fee",
+                    "Debit": fee,
+                    "Credit": "",
+                    "Description": description,
+                    "UID": "stripe_" + transaction_id,
+                }
+            )
+            journal_list.append(
+                {
+                    "Date": date,
+                    "Account": "Stripe Balance",
+                    "Debit": "",
+                    "Credit": -amount,
+                    "Description": description,
+                    "UID": "stripe_" + transaction_id,
+                }
+            )
+
         else:
             print(row)
 
